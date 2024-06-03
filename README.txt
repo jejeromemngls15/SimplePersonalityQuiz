@@ -1,0 +1,1 @@
+This Simple Personality Quiz was developed using Java, HTML, and CSS. This project is one of the activities given in our Application Development course and is a collaboration with Kristel Lenci Cruz.

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+    <error-page>
+        <error-code>404</error-code>
+        <location>/PageNotFound.jsp</location>
+    </error-page>
+    <context-param>
+        <param-name>disclaimerTag</param-name>
+        <param-value>Disclaimer: the results and questionnaire of this quiz is not accurate and tested. This is for web application demo only.</param-value>
+    </context-param>
+    <context-param>
+        <param-name>quizName</param-name>
+        <param-value>Simple Personality Quiz</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>WebAppQuizModel</servlet-name>
+        <servlet-class>controller.WebAppQuizModel</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>WebAppQuizServlet</servlet-name>
+        <servlet-class>controller.WebAppQuizServlet</servlet-class>
+        <init-param>
+            <description>this is an introvert answer</description>
+            <param-name>introAnswer</param-name>
+            <param-value>Introvert</param-value>
+        </init-param>
+        <init-param>
+            <description>this is an extrovert answer</description>
+            <param-name>extroAnswer</param-name>
+            <param-value>Extrovert</param-value>
+        </init-param>
+        <init-param>
+            <description>this is an ambivert answer</description>
+            <param-name>ambiAnswer</param-name>
+            <param-value>Ambivert</param-value>
+        </init-param>
+    </servlet>
+    <servlet>
+        <servlet-name>SecondServlet</servlet-name>
+        <servlet-class>controller.SecondServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>WebAppQuizModel</servlet-name>
+        <url-pattern>/WebAppQuizModel</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>WebAppQuizServlet</servlet-name>
+        <url-pattern>/testResults.do</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SecondServlet</servlet-name>
+        <url-pattern>/extraResults.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>welcomePage1.jsp</welcome-file>
+        <welcome-file>welcomePage2.jsp</welcome-file>
+    </welcome-file-list>
+    <listener>
+        <listener-class>listener.QuizListener</listener-class>
+    </listener>
+
+
+</web-app>
